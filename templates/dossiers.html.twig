@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <p><b>Dossiers créés du
+                    <form action=""><input type="text"  name="dateDebut" value=" {{  dateDebut }}" > au <input type="text" name="dateFin" value="{{ dateFin }}" ></form></b></p>
+            <p class="col-md-2 text-center">Numéro Dossier</p>
+            <p class="col-md-2 text-center">Expert</p>
+            <p class="col-md-2 text-center">Libellé Dossier</p>
+            <p class="col-md-2 text-center">Nom Client</p>
+        </div>
+        {% for response in responses %}
+            <form class="form-group" action="{{ path('test', {'id' : response.Id}) }}">
+                <div class="form-control">
+                    <div class="col-md-2"><input id="id" name="id" class="form-control" type="text" value="{{ response.Id }}" hidden></div>
+                    <div class="row">
+                        <div class="col-md-2"><input class="form-control text-center" type="text" value="{{ response.RefDossier }}" disabled></div>
+                        <div class="col-md-2"><input class="form-control text-center" type="text" value="{{ response.IdActeurExpert }}" disabled></div>
+                        <div class="col-md-2"><input class="form-control text-center" type="text" value="{{ response.Libelle }}" disabled></div>
+                        <div class="col-md-2"><input class="form-control text-center" type="text" value="{{ response.NomCompagnie }}" disabled></div>
+                        <div class="col-md-2"><input class="form-control text-center" type="text" value="{{ response.Mission.Libelle }}" disabled></div>
+                        <div class="col-md-2"><input id="button" style="width: 100%"  class="btn btn-primary btn-sm" type="submit" value="Ajouter"></div>
+                        <br/>
+                    </div>
+                </div>
+            </form>
+
+
+        {%  endfor %}
+
+    </div>
+
+{% endblock %}

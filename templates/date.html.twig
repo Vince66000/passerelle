@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+
+
+    <form name="date" action="{{ path('dossiers') }}" method="post">
+        <h1>Rechercher par date (3 mois max entre les dates)</h1>
+    <label for="dateDebut">Date Début</label>
+        <input type="date" id="dateDebut" name="dateDebut">
+    <label for="dateFin">Date Fin</label>
+        <input type="date" id="dateFin" name="dateFin">
+    <input type="submit" value="GO!">
+    </form>
+
+
+{% endblock %}
